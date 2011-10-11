@@ -1,0 +1,60 @@
+
+
+I actually have been planning out a package manager. I just started it because i was getting pissed off with the fact building debian packages is just
+a pita.
+
+i have a lot of ideas but most of it is mostly more a package layout that i would have thought to be logical.
+
+
+at the moment im just calling it pinst because i SUCK at naming and dont want to bring in any geek culture.
+
+
+
+
+the idea is like so. a easy for both humans and computers to read config format, most likely json. pull features from android as far as tell users what
+packages do (well more have a better than usual catagory system that allows better filtering and also searching.) and make it extremly secure, requiring 
+a special repo software most likely because i want the source repo to give info IN the package ( you will see later.).
+
+
+a package is like this
+
+xz cont
+    tar 
+        pinst
+        Scripts/
+            (install|configure|uninstall)
+        content/
+            (usr|var|opt|etc)
+        repod
+        repod.asc
+    gpg validation of tar
+gpg validation of xz (ive seen some nasty tricks possible by having multiple files in a .xz or a .gz file so i want to prevent that.)
+
+if the speed issues are too great from the dual gpg keys and the repod.asc (signed by an offical mirror "CA") ill change that.
+
+the choice of json is because 
+    1) its human readable
+    2) it is very easy on the computer as well
+
+using json (or maybe yml just NOT XML or something else) should make life a lot easier.
+
+also, the repod is required for installing network packages but the signed version is only required for our offical servers.
+
+the package manager itself has some other interesting features you may think are nice.
+
+    1) allows you to verify the location a package was installed from
+    2) allows you to lock critical and often backdoored packages.
+    3) allows you to lock the kernel to offical ones and by using your own key to sign it ( yes that means modifications to the bootloader too)
+    4) package filtering that allows you to block by almost any option in the repod and the pinst files (block a certain repo or a certain dev)
+
+none of the options that would make the system more secure are enabled by default. but they can be activated with a tool to allow you to work with this.
+
+one reason i am designing it like this is because the "enterprise" would love it. a work machine could have its repos limited and also whats needed to make
+the machine run limited (maybe just X, the core, drivers and an remote desktop client). 
+
+the deal here is it is much more than a package manager, its a full admin system that
+all links up together (however its not going to be actually stuffed in one app, thats
+not scriptable.
+
+fox.
+-- EOF -- # comments can go below here!
