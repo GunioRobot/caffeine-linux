@@ -8,12 +8,12 @@ def installDeveloperPackages():
 	"""Installs the packages necessary for a caffeine linux develoment
 	environment """
 	print "Now marking packages for installation"
-	return_code = call("apt-get install --assume-yes install build-essential git cmake qtcreator vim virtualbox-ose \
-						debhelper dbus-x11 libxml12-utils libxkbfile-dev network-manager-dev \
+	return_code = call("apt-get install --assume-yes build-essential git cmake qtcreator vim virtualbox-ose \
+						debhelper dbus-x11 libxkbfile-dev network-manager-dev \
 						libqt4-dev libstreamanalyzer-dev libstrigiqtdbusclient-dev \
 						libxft-dev libxss-dev libpci-dev libpolkit-backend-1-dev libpoppler-qt4-dev \
-						liblcmsl-dev libv41-dev devscripts ", shell=True)
-	if retrun_code != 0:
+					    devscripts ", shell=True)
+	if return_code != 0:
 		print """An error has occured, please review the console output to determine what went wrong 
 		If it is a problem with this script please file a bug report."""
 	else:
