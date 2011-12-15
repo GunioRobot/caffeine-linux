@@ -33,7 +33,12 @@ def installBuildDepends():
 					libpolkit-agent-1-dev libpolkit-backend-1-dev libpolkit-gobject-1-dev libspectre-dev", shell=True)
 
 if __name__ == "__main__":
-	installDeveoperPackages()
+	# Check to see if we are root
+	uid = os.getuid()
+	if uid != 0:
+		print "This script must be run as root!"
+		sys.exit()
+	installDeveloperPackages()
 	prompt = ">"
 	print "Install KDE build dependencies as well? [Y/n]"
 	answer = raw_input(prompt)
