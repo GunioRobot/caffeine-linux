@@ -24,11 +24,11 @@ def installBuildDepends():
 	There are a lot of dependencies so this will only get called if the user wishes"""
 
 	error_code = call("apt-get install --assume-yes graphviz libxml2-utils libopenexr-dev libjasper-dev libenchant-dev \
-					libavahi-common-dev libaspell-dev libasound2-dev libldap2-dev libsasl12-dev \
-					libsmbclient-dev libxkbfile-dev libxcbl-dev libxklavier-dev libxdamage-dev \
-					libxcomosite-dev libbluetooth-dev libusb-dev network-manager-dev \
+					libavahi-common-dev libaspell-dev libasound2-dev libldap2-dev \
+					libsmbclient-dev libxkbfile-dev libxklavier-dev libxdamage-dev \
+					libbluetooth-dev libusb-dev network-manager-dev \
 					libsensors4-dev libnm-util-dev libcfitsio3-dev libnova-dev libeigen2-dev \
-					libopenbable-dev libfacile-ocaml-dev libboost-python-dev libsvn-dev libsvncpp-dev \
+					libfacile-ocaml-dev libboost-python-dev libsvn-dev libsvncpp-dev \
 					libcommoncpp2-dev libidn11-dev libpci-dev libxss-dev libxft-dev \
 					libpolkit-agent-1-dev libpolkit-backend-1-dev libpolkit-gobject-1-dev libspectre-dev", shell=True)
 
