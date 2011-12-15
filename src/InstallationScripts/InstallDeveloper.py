@@ -2,6 +2,7 @@
 
 import os
 from subprocess import call
+import sys
 
 def installDeveloperPackages():
 	"""Installs the packages necessary for a caffeine linux develoment
@@ -39,6 +40,12 @@ if __name__ == "__main__":
 	if answer == "Y" or answer == "y":
 		installBuildDepends()
 	elif answer == "N" or answer == "n":
-		pass
-	else: print "Invalid input detected, now exiting!"
+		print "OK! Your initial packaging and development packages are now installed. For help \
+		with packaging please visit http://wiki.debian.org/IntroDebianPackaging\n \
+		For help with caffeine linux related problems, please open an issue on github \
+		or send a message to the caffeine linux devel mailing list."
+		sys.exit()
+	else: 
+		print "Invalid input detected, now exiting!"
+		sys.exit()
 
