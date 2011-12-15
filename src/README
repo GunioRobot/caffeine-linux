@@ -1,0 +1,13 @@
+This is the main src directory for caffeine linux.
+This is the testing branch so all of your expieremental stuff will go here.
+
+This should be organized by Application Name.
+src/
+....Caffeine-Linux-Installer/
+........src/
+........images/
+....Caffeine-Linux-Settings/
+........src/
+
+
+and so on.
