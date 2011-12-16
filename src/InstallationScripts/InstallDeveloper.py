@@ -17,7 +17,7 @@ def installDeveloperPackages():
 		print """An error has occured, please review the console output to determine what went wrong 
 		If it is a problem with this script please file a bug report."""
 	else:
-		print "The operation complete successfully!"
+		print "The operation completed successfully!"
 
 def installBuildDepends():
 	"""This function installs dependencies necessary to build the KDE SC from source.
@@ -32,8 +32,22 @@ def installBuildDepends():
 					libcommoncpp2-dev libidn11-dev libpci-dev libxss-dev libxft-dev \
 					libpolkit-agent-1-dev libpolkit-backend-1-dev libpolkit-gobject-1-dev libspectre-dev", shell=True)
 
+def cleanUpDevEnv():
+	"""This function takes care of cleaning up packages installed (developer packages)"""
+	isSuccessful = call("apt-get purge --assume-yes build-essential git cmake qtcreatr \
+						vim virtualbox-ose debhelper dbux-x11 libxkbfile-dev network-manager-dev \
+						libqt4-dev libstreamanalyzer-dev libstrigiqtdbusclient-dev \
+						libxft-dev libxss-dev libpci-dev libpolkit-backend-1-dev libpoppler-qt4-dev \
+						devscripts", shell=True)
+	if isSuccessful != 0:
+		print "An error occurred, please review the logs"
+		sys.exit()
+	else: call("apt-get autoremove")
+
 if __name__ == "__main__":
 	# Check to see if we are root
+	# Beyond this point is now deprecated! Please only use in the case of breakage of the DeveloperHelper.py program.
+	# From this version on, the following code will be unmaintained. Use at your own risk.
 	uid = os.getuid()
 	if uid != 0:
 		print "This script must be run as root!"
