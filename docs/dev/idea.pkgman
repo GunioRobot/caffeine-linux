@@ -58,3 +58,5 @@ not scriptable.
 
 fox.
 -- EOF -- # comments can go below here!
+cafejunkie writes:
+With the enterprise focus, what about centralized configuration management? Easy way to push out what repos are and are not allowed via a configuration policiy? (something like KDE's Kiosk or GPOs in Windows but for the package manager)
